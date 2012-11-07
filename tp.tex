@@ -79,28 +79,13 @@ La base de datos de atributos acústicos, junto con el enunciado completo del TP
 
 \section{Sistema baseline}
 
-Se utilizó un clasificador \texttt{rules.JRip} con los siguientes parámetros:
+Se empleó un clasificador \texttt{rules.JRip} con opciones de configuración por defecto y cross-validation de 10 folds.
 
-\begin{description}
-\item[checkErrorRate] True
-\item[debug] False
-\item[folds] 3
-\item[minNo] 2.0
-\item[minNo] 2.0
-\item[optimizations] 2
-\item[seed] 1
-\item[usePruning] True
-\end{description}
-
-En opciones del test, se seleccionó cross-validation con 10 folds.
-
-Los atributos utilizados fueron \texttt{genero} y \texttt{F0Final\_sma\_amean} (media de la frecuencia fundamental.)
+El atributo utilizado fue \texttt{F0Final\_sma\_amean} (media de la frecuencia fundamental.)
 
 \subsection{Resultados}
 
-Se obtuvo un porcentaje de instancias correctamente clasificadas del \textbf{86.9315\%}.
-
-El clasificador reportó la siguiente matriz de confusión:
+Se obtuvo un porcentaje de instancias correctamente clasificadas del \textbf{86.9315\%}, con la siguiente matriz de confusión:
 
 \begin{verbatim}
 === Confusion Matrix ===
@@ -110,12 +95,35 @@ El clasificador reportó la siguiente matriz de confusión:
  110 697 |   b = m
 \end{verbatim}
 
-\section{Experimentos conducidos}
-
-\lipsum[1-2]
-
 \section{Mejor sistema desarrollado}
 
-\lipsum[3-4]
+La mejor configuración hallada fue un clasificador \texttt{trees.J48} con los siguientes atributos:
+
+\begin{description}
+\item[mfcc\_sma{[}10{]}\_quartile1]
+\item[mfcc\_sma{[}12{]}\_quartile1]
+\item[logMelFreqBand\_sma{[}0{]}\_quartile3]
+\item[lspFreq\_sma{[}4{]}\_linregerrA]
+\item[F0finEnv\_sma\_amean]
+\item[shimmerLocal\_sma\_linregc1]
+\end{description}
+
+Los atributos fueron seleccionados usando el método de búsqueda \texttt{GreedyStepwise}, con evaluador de atributos \texttt{ClassifierSubsetEval} y clasificador \texttt{rules.JRip}.
+
+\subsection{Resultados}
+
+Se clasificaron correctamente el \textbf{95.0673\%} de las instancias, y se obtuvo la siguiente matriz de confusión:
+
+\begin{verbatim}
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 710  44 |   a = f
+  33 774 |   b = m
+\end{verbatim}
+
+\section{Otros experimentos conducidos}
+
+\lipsum[1-3]
 
 \end{document}
