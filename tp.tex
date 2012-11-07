@@ -4,8 +4,10 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb}
+\usepackage{hyperref}
 \usepackage{lipsum}
 
+% Formato del header y footer
 \usepackage{lastpage}
 \usepackage{fancyhdr}
 \lhead{\small Trabajo Práctico 3: Aprendizaje Automático}
@@ -18,14 +20,18 @@
 \renewcommand{\footrulewidth}{0.4pt}
 \pagestyle{fancyplain}
 
+% Fomato del título
 \usepackage{titling}
-
-\title{Trabajo Práctico 3: Aprendizaje Automático}
+\title{Trabajo Práctico 3:\\Aprendizaje Automático}
 \author{Leandro Lovisolo\\LU 645/11}
 \date{Segundo Cuatrimestre de 2012}
 
+% Esconder números de sección
+\renewcommand{\thesection}{}
+
 \begin{document}
 
+% Título
 \pretitle{
   \vspace{-4em}
   \begin{center}
@@ -53,7 +59,15 @@
 
 \section{Introducción}
 
-\lipsum[1]
+El objetivo de este trabajo práctico es construir un sistema de reconocimiento automático del género de una persona, a partir de una grabación corta de su habla.
+
+Para desarrollar el sistema se usará una base de datos de atributos acústicos extraídos de las grabaciones recolectadas por todos los alumnos de esta materia durante el TP 1. Las instancias corresponden a los segmentos del habla sin pausas (inter-pausal units o IPUs) de dichas grabaciones. Cada instancia registra el género del hablante y 1582 atributos acústicos.
+
+Este TP consiste en construir en Weka\footnote{\url{http://www.cs.waikato.ac.nz/ml/weka/}} un clasificador automático que prediga el género (masculino o femenino) del hablante de un segmento de habla, a partir de sus atributos acústicos.
+
+Los atributos acústicos en la base de datos fueron extraídos de los archivos de audio con la herramienta openSMILE\footnote{\url{http://opensmile.sourceforge.net/}}, usando la configuración para el INTERSPEECH 2010 Paralinguistic Challenge\footnote{\url{http://emotion-research.net/sigs/speech-sig/paralinguistic-challenge}}, y almacenados en formato ARFF para facilitar su lectura desde Weka. Para más información, ver las páginas 30 y 31 del openSMILE book\footnote{\url{http://sourceforge.net/projects/opensmile/files/openSMILE\_book\_1.0.0.pdf}}.
+
+La base de datos de atributos acústicos, junto con el enunciado completo del TP, pueden descargarse desde la siguiente URL: \url{http://habla.dc.uba.ar/gravano/ith-2012/tp3/}
 
 \section{Materiales y métodos}
 
