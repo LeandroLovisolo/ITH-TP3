@@ -26,8 +26,8 @@
 \author{Leandro Lovisolo\\LU 645/11}
 \date{Segundo Cuatrimestre de 2012}
 
-% Esconder números de sección
-\renewcommand{\thesection}{}
+% Esconder números de sección, subsección y etc.
+\setcounter{secnumdepth}{-1} 
 
 \begin{document}
 
@@ -79,10 +79,43 @@ La base de datos de atributos acústicos, junto con el enunciado completo del TP
 
 \section{Sistema baseline}
 
-\lipsum[3]
+Se utilizó un clasificador \texttt{rules.JRip} con los siguientes parámetros:
+
+\begin{description}
+\item[checkErrorRate] True
+\item[debug] False
+\item[folds] 3
+\item[minNo] 2.0
+\item[minNo] 2.0
+\item[optimizations] 2
+\item[seed] 1
+\item[usePruning] True
+\end{description}
+
+En opciones del test, se seleccionó cross-validation con 10 folds.
+
+Los atributos utilizados fueron \texttt{genero} y \texttt{F0Final\_sma\_amean} (media de la frecuencia fundamental.)
+
+\subsection{Resultados}
+
+Se obtuvo un porcentaje de instancias correctamente clasificadas del \textbf{86.9315\%}.
+
+El clasificador reportó la siguiente matriz de confusión:
+
+\begin{verbatim}
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 660  94 |   a = f
+ 110 697 |   b = m
+\end{verbatim}
+
+\section{Experimentos conducidos}
+
+\lipsum[1-2]
 
 \section{Mejor sistema desarrollado}
 
-\lipsum[4]
+\lipsum[3-4]
 
 \end{document}
