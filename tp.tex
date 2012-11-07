@@ -100,12 +100,12 @@ Se obtuvo un porcentaje de instancias correctamente clasificadas del \textbf{86.
 La mejor configuración hallada fue un clasificador \texttt{trees.J48} con los siguientes atributos:
 
 \begin{description}
-\item[mfcc\_sma{[}10{]}\_quartile1]
-\item[mfcc\_sma{[}12{]}\_quartile1]
-\item[logMelFreqBand\_sma{[}0{]}\_quartile3]
-\item[lspFreq\_sma{[}4{]}\_linregerrA]
-\item[F0finEnv\_sma\_amean]
-\item[shimmerLocal\_sma\_linregc1]
+\item[mfcc\_sma{[}10{]}\_quartile1] Primer cuartil del decimoprimer coeficiente cepstral en las frecuencias de Mel, suavizado por un filtro promedio móvil de ventana de longitud 3.
+\item[mfcc\_sma{[}12{]}\_quartile1] Decimotercer coeficiente, idem anterior.
+\item[logMelFreqBand\_sma{[}0{]}\_quartile3] Tercer cuartil de la potencia logarítmica de la primer banda de frecuencias de Mel, suavizado por un filtro promedio móvil de ventana de longitud 3.
+\item[lspFreq\_sma{[}4{]}\_linregerrA] Error lineal, computado como la diferencia entre los valores reales y su aproximación lineal, de pares de 8 líneas espectrales de frecuencias computados a partir de 8 coeficientes LPC (linear predictive coding.)
+\item[F0finEnv\_sma\_amean] Media aritmética del contorno de la envolvente de la frecuencia fundamental, suavizada por un filtro promedio móvil de ventana de longitud 3.
+\item[shimmerLocal\_sma\_linregc1] Pendiente de la aproximación lineal de las desviaciones de amplitud locales entre períodos de pitch, suavizadas por un filtro promedio móvil de ventana de longitud 3.
 \end{description}
 
 Los atributos fueron seleccionados usando el método de búsqueda \texttt{GreedyStepwise}, con evaluador de atributos \texttt{ClassifierSubsetEval} y clasificador \texttt{rules.JRip}.
