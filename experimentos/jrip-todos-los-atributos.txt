@@ -1,0 +1,54 @@
+=== Run information ===
+
+Scheme:weka.classifiers.rules.JRip -F 3 -N 2.0 -O 2 -S 1
+Relation:     SMILEfeatures-weka.filters.unsupervised.attribute.Remove-R1
+Instances:    1561
+Attributes:   1583
+[list of attributes omitted]
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+JRIP rules:
+===========
+
+(F0finEnv_sma_amean >= 155.7545) and (mfcc_sma[11]_quartile3 <= 4.815055) and (mfcc_sma[10]_amean <= 5.227318) => genero=f (538.0/7.0)
+(F0final_sma_quartile3 >= 161.6396) and (lspFreq_sma[7]_quartile1 >= 2.203496) and (mfcc_sma[13]_quartile1 <= -5.776456) => genero=f (102.0/2.0)
+(mfcc_sma[12]_quartile2 >= 3.142899) and (mfcc_sma[14]_quartile3 <= 4.64581) => genero=f (52.0/3.0)
+(F0finEnv_sma_linregc2 >= 156.9958) and (mfcc_sma[12]_linregc2 >= -6.485498) and (lspFreq_sma[7]_quartile2 >= 2.246433) => genero=f (33.0/0.0)
+(voicingFinalUnclipped_sma_pctlrange0-1 >= 0.817559) and (lspFreq_sma[6]_upleveltime75 >= 0.270054) and (mfcc_sma[12]_amean >= -10.05826) => genero=f (22.0/3.0)
+(F0finEnv_sma_quartile2 >= 144.9667) and (lspFreq_sma[7]_linregc2 >= 2.289681) and (mfcc_sma[12]_percentile1.0 >= -27.78725) and (mfcc_sma[6]_upleveltime75 <= 0.234043) => genero=f (11.0/0.0)
+(mfcc_sma[6]_percentile1.0 >= -19.0893) and (voicingFinalUnclipped_sma_skewness >= -0.782319) and (pcm_loudness_sma_skewness <= 0.205507) => genero=f (6.0/0.0)
+(voicingFinalUnclipped_sma_quartile3 >= 0.794381) => genero=f (7.0/3.0)
+ => genero=m (790.0/1.0)
+
+Number of Rules : 9
+
+
+Time taken to build model: 8.47 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        1503               96.2844 %
+Incorrectly Classified Instances        58                3.7156 %
+Kappa statistic                          0.9256
+Mean absolute error                      0.0436
+Root mean squared error                  0.19  
+Relative absolute error                  8.7351 %
+Root relative squared error             38.012  %
+Total Number of Instances             1561     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.96      0.035      0.963     0.96      0.961      0.965    f
+                 0.965     0.04       0.963     0.965     0.964      0.965    m
+Weighted Avg.    0.963     0.037      0.963     0.963     0.963      0.965
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 724  30 |   a = f
+  28 779 |   b = m
+

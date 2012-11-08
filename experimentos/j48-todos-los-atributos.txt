@@ -1,0 +1,91 @@
+=== Run information ===
+
+Scheme:weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     SMILEfeatures-weka.filters.unsupervised.attribute.Remove-R1
+Instances:    1561
+Attributes:   1583
+[list of attributes omitted]
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+F0finEnv_sma_amean <= 155.5426
+|   mfcc_sma[12]_quartile1 <= -3.324774
+|   |   voicingFinalUnclipped_sma_percentile99.0 <= 0.817438
+|   |   |   mfcc_sma[6]_percentile1.0 <= -21.86055
+|   |   |   |   jitterDDP_sma_quartile3 <= 0.009474: m (573.0)
+|   |   |   |   jitterDDP_sma_quartile3 > 0.009474
+|   |   |   |   |   logMelFreqBand_sma_de[4]_iqr1-3 <= 0.450822: f (5.0/1.0)
+|   |   |   |   |   logMelFreqBand_sma_de[4]_iqr1-3 > 0.450822
+|   |   |   |   |   |   mfcc_sma[5]_iqr2-3 <= 14.91475: m (79.0)
+|   |   |   |   |   |   mfcc_sma[5]_iqr2-3 > 14.91475
+|   |   |   |   |   |   |   mfcc_sma[2]_skewness <= 0.116791: f (4.0)
+|   |   |   |   |   |   |   mfcc_sma[2]_skewness > 0.116791: m (4.0)
+|   |   |   mfcc_sma[6]_percentile1.0 > -21.86055
+|   |   |   |   lspFreq_sma[5]_minPos <= 24: f (7.0)
+|   |   |   |   lspFreq_sma[5]_minPos > 24
+|   |   |   |   |   lspFreq_sma_de[4]_maxPos <= 134: m (16.0)
+|   |   |   |   |   lspFreq_sma_de[4]_maxPos > 134: f (2.0)
+|   |   voicingFinalUnclipped_sma_percentile99.0 > 0.817438
+|   |   |   lspFreq_sma[3]_quartile2 <= 1.165035
+|   |   |   |   F0finEnv_sma_percentile1.0 <= 127.7215: f (13.0)
+|   |   |   |   F0finEnv_sma_percentile1.0 > 127.7215: m (2.0)
+|   |   |   lspFreq_sma[3]_quartile2 > 1.165035: m (16.0)
+|   mfcc_sma[12]_quartile1 > -3.324774
+|   |   mfcc_sma[14]_amean <= -1.050234: f (57.0/1.0)
+|   |   mfcc_sma[14]_amean > -1.050234
+|   |   |   mfcc_sma[1]_amean <= -3.07841: f (3.0)
+|   |   |   mfcc_sma[1]_amean > -3.07841: m (21.0)
+F0finEnv_sma_amean > 155.5426
+|   lspFreq_sma[7]_quartile1 <= 2.175229
+|   |   lspFreq_sma[1]_quartile3 <= 0.571417
+|   |   |   jitterLocal_sma_maxPos <= 12: m (10.0)
+|   |   |   jitterLocal_sma_maxPos > 12
+|   |   |   |   voicingFinalUnclipped_sma_de_quartile3 <= 0.043375: f (18.0)
+|   |   |   |   voicingFinalUnclipped_sma_de_quartile3 > 0.043375: m (2.0)
+|   |   lspFreq_sma[1]_quartile3 > 0.571417: m (50.0)
+|   lspFreq_sma[7]_quartile1 > 2.175229
+|   |   logMelFreqBand_sma[4]_percentile99.0 <= -1.069027
+|   |   |   mfcc_sma[12]_amean <= -7.045581: m (20.0)
+|   |   |   mfcc_sma[12]_amean > -7.045581: f (23.0)
+|   |   logMelFreqBand_sma[4]_percentile99.0 > -1.069027
+|   |   |   voicingFinalUnclipped_sma_percentile99.0 <= 0.792045
+|   |   |   |   mfcc_sma[10]_amean <= 1.765788: f (16.0)
+|   |   |   |   mfcc_sma[10]_amean > 1.765788: m (9.0/1.0)
+|   |   |   voicingFinalUnclipped_sma_percentile99.0 > 0.792045: f (611.0/4.0)
+
+Number of Leaves  : 	23
+
+Size of the tree : 	45
+
+
+Time taken to build model: 5.13 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        1461               93.5939 %
+Incorrectly Classified Instances       100                6.4061 %
+Kappa statistic                          0.8718
+Mean absolute error                      0.0668
+Root mean squared error                  0.2501
+Relative absolute error                 13.3745 %
+Root relative squared error             50.0569 %
+Total Number of Instances             1561     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.94      0.068      0.928     0.94      0.934      0.927    f
+                 0.932     0.06       0.944     0.932     0.938      0.927    m
+Weighted Avg.    0.936     0.064      0.936     0.936     0.936      0.927
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 709  45 |   a = f
+  55 752 |   b = m
+

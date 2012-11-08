@@ -1,0 +1,115 @@
+=== Run information ===
+
+Scheme:weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     SMILEfeatures-weka.filters.unsupervised.attribute.Remove-R1-weka.filters.unsupervised.attribute.Remove-R1-241,243-283,285-348,350-593,595-674,676-1488,1490-1582
+Instances:    1561
+Attributes:   7
+              mfcc_sma[10]_quartile1
+              mfcc_sma[12]_quartile1
+              logMelFreqBand_sma[0]_quartile3
+              lspFreq_sma[4]_linregerrA
+              F0finEnv_sma_amean
+              shimmerLocal_sma_linregc1
+              genero
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+F0finEnv_sma_amean <= 155.5426
+|   mfcc_sma[12]_quartile1 <= -3.324774
+|   |   mfcc_sma[10]_quartile1 <= -17.5363
+|   |   |   mfcc_sma[12]_quartile1 <= -14.26491
+|   |   |   |   F0finEnv_sma_amean <= 151.5407: m (19.0)
+|   |   |   |   F0finEnv_sma_amean > 151.5407: f (3.0/1.0)
+|   |   |   mfcc_sma[12]_quartile1 > -14.26491
+|   |   |   |   shimmerLocal_sma_linregc1 <= -0.000506: f (4.0)
+|   |   |   |   shimmerLocal_sma_linregc1 > -0.000506
+|   |   |   |   |   logMelFreqBand_sma[0]_quartile3 <= -0.112629
+|   |   |   |   |   |   logMelFreqBand_sma[0]_quartile3 <= -2.246767: m (2.0)
+|   |   |   |   |   |   logMelFreqBand_sma[0]_quartile3 > -2.246767: f (4.0)
+|   |   |   |   |   logMelFreqBand_sma[0]_quartile3 > -0.112629: m (3.0)
+|   |   mfcc_sma[10]_quartile1 > -17.5363
+|   |   |   mfcc_sma[12]_quartile1 <= -11.97733: m (432.0/1.0)
+|   |   |   mfcc_sma[12]_quartile1 > -11.97733
+|   |   |   |   lspFreq_sma[4]_linregerrA <= 0.163028: m (241.0/13.0)
+|   |   |   |   lspFreq_sma[4]_linregerrA > 0.163028
+|   |   |   |   |   F0finEnv_sma_amean <= 126.5154: m (6.0)
+|   |   |   |   |   F0finEnv_sma_amean > 126.5154: f (7.0/1.0)
+|   mfcc_sma[12]_quartile1 > -3.324774
+|   |   lspFreq_sma[4]_linregerrA <= 0.087301
+|   |   |   mfcc_sma[12]_quartile1 <= -2.001621
+|   |   |   |   mfcc_sma[12]_quartile1 <= -2.926378: f (3.0)
+|   |   |   |   mfcc_sma[12]_quartile1 > -2.926378
+|   |   |   |   |   logMelFreqBand_sma[0]_quartile3 <= -3.490148: f (2.0)
+|   |   |   |   |   logMelFreqBand_sma[0]_quartile3 > -3.490148: m (4.0)
+|   |   |   mfcc_sma[12]_quartile1 > -2.001621: f (49.0)
+|   |   lspFreq_sma[4]_linregerrA > 0.087301
+|   |   |   F0finEnv_sma_amean <= 123.383: m (18.0)
+|   |   |   F0finEnv_sma_amean > 123.383: f (5.0)
+F0finEnv_sma_amean > 155.5426
+|   mfcc_sma[12]_quartile1 <= -14.43795
+|   |   F0finEnv_sma_amean <= 204.3469
+|   |   |   logMelFreqBand_sma[0]_quartile3 <= -1.193894: m (46.0)
+|   |   |   logMelFreqBand_sma[0]_quartile3 > -1.193894
+|   |   |   |   mfcc_sma[12]_quartile1 <= -23.17882: m (16.0/1.0)
+|   |   |   |   mfcc_sma[12]_quartile1 > -23.17882
+|   |   |   |   |   logMelFreqBand_sma[0]_quartile3 <= 0.848241
+|   |   |   |   |   |   lspFreq_sma[4]_linregerrA <= 0.10941: f (31.0)
+|   |   |   |   |   |   lspFreq_sma[4]_linregerrA > 0.10941: m (3.0)
+|   |   |   |   |   logMelFreqBand_sma[0]_quartile3 > 0.848241: m (7.0/1.0)
+|   |   F0finEnv_sma_amean > 204.3469: f (40.0/1.0)
+|   mfcc_sma[12]_quartile1 > -14.43795
+|   |   mfcc_sma[10]_quartile1 <= -3.955308
+|   |   |   F0finEnv_sma_amean <= 173.2272
+|   |   |   |   mfcc_sma[12]_quartile1 <= -8.022162
+|   |   |   |   |   logMelFreqBand_sma[0]_quartile3 <= -1.091142
+|   |   |   |   |   |   F0finEnv_sma_amean <= 168.5703: m (6.0)
+|   |   |   |   |   |   F0finEnv_sma_amean > 168.5703: f (5.0/1.0)
+|   |   |   |   |   logMelFreqBand_sma[0]_quartile3 > -1.091142: f (23.0/1.0)
+|   |   |   |   mfcc_sma[12]_quartile1 > -8.022162: f (39.0)
+|   |   |   F0finEnv_sma_amean > 173.2272: f (477.0)
+|   |   mfcc_sma[10]_quartile1 > -3.955308
+|   |   |   logMelFreqBand_sma[0]_quartile3 <= 1.460059
+|   |   |   |   mfcc_sma[12]_quartile1 <= -8.905645
+|   |   |   |   |   F0finEnv_sma_amean <= 163.5361: m (4.0)
+|   |   |   |   |   F0finEnv_sma_amean > 163.5361
+|   |   |   |   |   |   mfcc_sma[10]_quartile1 <= 4.143007: f (16.0/1.0)
+|   |   |   |   |   |   mfcc_sma[10]_quartile1 > 4.143007: m (3.0)
+|   |   |   |   mfcc_sma[12]_quartile1 > -8.905645: f (35.0)
+|   |   |   logMelFreqBand_sma[0]_quartile3 > 1.460059: m (8.0/1.0)
+
+Number of Leaves  : 	32
+
+Size of the tree : 	63
+
+
+Time taken to build model: 0.16 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        1484               95.0673 %
+Incorrectly Classified Instances        77                4.9327 %
+Kappa statistic                          0.9012
+Mean absolute error                      0.0592
+Root mean squared error                  0.2148
+Relative absolute error                 11.8628 %
+Root relative squared error             42.9866 %
+Total Number of Instances             1561     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.942     0.041      0.956     0.942     0.949      0.961    f
+                 0.959     0.058      0.946     0.959     0.953      0.961    m
+Weighted Avg.    0.951     0.05       0.951     0.951     0.951      0.961
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 710  44 |   a = f
+  33 774 |   b = m
+

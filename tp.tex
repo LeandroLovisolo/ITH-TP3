@@ -6,6 +6,7 @@
 \usepackage{amssymb}
 \usepackage{hyperref}
 \usepackage{lipsum}
+\usepackage{multirow}
 
 % Formato del header y footer
 \usepackage{lastpage}
@@ -95,35 +96,79 @@ Se obtuvo un porcentaje de instancias correctamente clasificadas del \textbf{86.
  110 697 |   b = m
 \end{verbatim}
 
-\section{Mejor sistema desarrollado}
+\section{Experimentos realizados}
 
-La mejor configuración hallada fue un clasificador \texttt{trees.J48} con los siguientes atributos:
+Se evaluaron los clasificadores \texttt{rules.JRip}, \texttt{trees.J48}, \texttt{bayes.NaiveBayes} y \texttt{functions.SMO} con cross-validation de 10 folds, utilizando tres subconjuntos diferentes de atributos acústicos de la base de datos:
 
-\begin{description}
-\item[mfcc\_sma{[}10{]}\_quartile1] Primer cuartil del decimoprimer coeficiente cepstral en las frecuencias de Mel, suavizado por un filtro promedio móvil de ventana de longitud 3.
-\item[mfcc\_sma{[}12{]}\_quartile1] Decimotercer coeficiente, idem anterior.
-\item[logMelFreqBand\_sma{[}0{]}\_quartile3] Tercer cuartil de la potencia logarítmica de la primer banda de frecuencias de Mel, suavizado por un filtro promedio móvil de ventana de longitud 3.
-\item[lspFreq\_sma{[}4{]}\_linregerrA] Error lineal, computado como la diferencia entre los valores reales y su aproximación lineal, de pares de 8 líneas espectrales de frecuencias computados a partir de 8 coeficientes LPC (linear predictive coding.)
-\item[F0finEnv\_sma\_amean] Media aritmética del contorno de la envolvente de la frecuencia fundamental, suavizada por un filtro promedio móvil de ventana de longitud 3.
-\item[shimmerLocal\_sma\_linregc1] Pendiente de la aproximación lineal de las desviaciones de amplitud locales entre períodos de pitch, suavizadas por un filtro promedio móvil de ventana de longitud 3.
-\end{description}
-
-Los atributos fueron seleccionados usando el método de búsqueda \texttt{GreedyStepwise}, con evaluador de atributos \texttt{ClassifierSubsetEval} y clasificador \texttt{rules.JRip}.
+\begin{itemize}
+  \item La base de datos completa.
+  
+  \item El subconjunto hallado utilizando el método de búsqueda \texttt{GreedyStepwise}, con evaluador de atributos \texttt{ClassifierSubsetEval} y clasificador \texttt{functions.SMO}:
+  \begin{description}
+    \item[mfcc\_sma{[}0{]}\_linregc1]
+    \item[mfcc\_sma{[}0{]}\_linregerrQ]
+    \item[mfcc\_sma{[}4{]}\_skewness]
+    \item[mfcc\_sma{[}6{]}\_linregc2]
+    \item[mfcc\_sma{[}10{]}\_quartile1]
+    \item[mfcc\_sma{[}12{]}\_amean]
+    \item[mfcc\_sma{[}14{]}\_quartile2]
+    \item[lspFreq\_sma{[}1{]}\_linregerrA]
+    \item[lspFreq\_sma{[}7{]}\_quartile3]
+    \item[F0finEnv\_sma\_amean]
+    \item[mfcc\_sma\_de{[}9{]}\_percentile99.0]
+    \item[lspFreq\_sma\_de{[}2{]}\_linregerrQ]
+    \item[lspFreq\_sma\_de{[}6{]}\_quartile2]
+    \item[F0final\_sma\_upleveltime75]
+  \end{description}    
+  
+  \item El subconjunto hallado utilizando el mismo método y evaluador anteriores, pero reemplazando el clasificador por \texttt{rules.JRip}:
+  \begin{description}
+    \item[mfcc\_sma{[}10{]}\_quartile1] Primer cuartil del decimoprimer coeficiente cepstral en las frecuencias de Mel, suavizado por un filtro promedio móvil de ventana de longitud 3.
+    \item[mfcc\_sma{[}12{]}\_quartile1] Decimotercer coeficiente, idem anterior.
+    \item[logMelFreqBand\_sma{[}0{]}\_quartile3] Tercer cuartil de la potencia logarítmica de la primer banda de frecuencias de Mel, suavizado por un filtro promedio móvil de ventana de longitud 3.
+    \item[lspFreq\_sma{[}4{]}\_linregerrA] Error lineal, computado como la diferencia entre los valores reales y su aproximación lineal, de pares de 8 líneas espectrales de frecuencias computados a partir de 8 coeficientes LPC (linear predictive coding.)
+    \item[F0finEnv\_sma\_amean] Media aritmética del contorno de la envolvente de la frecuencia fundamental, suavizada por un filtro promedio móvil de ventana de longitud 3.
+    \item[shimmerLocal\_sma\_linregc1] Pendiente de la aproximación lineal de las desviaciones de amplitud locales entre períodos de pitch, suavizadas por un filtro promedio móvil de ventana de longitud 3.
+  \end{description}  
+\end{itemize}
 
 \subsection{Resultados}
 
-Se clasificaron correctamente el \textbf{95.0673\%} de las instancias, y se obtuvo la siguiente matriz de confusión:
+A continuación se presentan los porcentajes de aciertos obtenidos con todas las combinaciones de clasificadores y subconjuntos de atributos acústicos.
+
+\begin{table}
+  \centering
+  \begin{tabular}{  l  c | c | c | }
+    \cline{3-4}
+    & & \multicolumn{2}{|c|}{\textbf{Búsqueda \texttt{GreedyStepwise} con \texttt{ClassifierSubsetEval}}}  \\
+    \hline                        
+    \multicolumn{1}{|c|}{\textbf{Clasificador}} & \textbf{Todos los atributos} & \textbf{Clasificador \texttt{functions.SMO}} & \textbf{Clasificador \texttt{rules.JRip}} \\
+    \hline
+    \multicolumn{1}{|l|}{\texttt{rules.JRip}}       & 96.2844\% & 94.5548\% & 95.3235\% \\
+    \hline
+    \multicolumn{1}{|l|}{\texttt{trees.J48}}        & 93.5959\% & 94.6188\% & 95.0673\% \\
+    \hline
+    \multicolumn{1}{|l|}{\texttt{bayes.NaiveBayes}} & 86.6752\% & 94.6188\% & 85.3299\% \\
+    \hline
+    \multicolumn{1}{|l|}{\texttt{functions.SMO}}    & 99.0391\% & 97.7578\% & 91.672\% \\
+    \hline  
+  \end{tabular}
+\end{table}
+
+\section{Mejor sistema desarrollado}
+
+Como se puede ver en la tabla anterior, la mejor configuración hallada fue un clasificador \texttt{functions.SMO} con cross-validation de 10 folds, que toma todos los atributos acústicos de la base de datos.
+
+\subsection{Resultados}
+
+Se clasificaron correctamente el \textbf{99.0391\%} de las instancias, y se obtuvo la siguiente matriz de confusión:
 
 \begin{verbatim}
 === Confusion Matrix ===
 
    a   b   <-- classified as
- 710  44 |   a = f
-  33 774 |   b = m
+ 747   7 |   a = f
+   8 799 |   b = m
 \end{verbatim}
-
-\section{Otros experimentos conducidos}
-
-\lipsum[1-3]
 
 \end{document}

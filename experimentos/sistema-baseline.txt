@@ -1,0 +1,48 @@
+=== Run information ===
+
+Scheme:weka.classifiers.rules.JRip -F 3 -N 2.0 -O 2 -S 1
+Relation:     SMILEfeatures-weka.filters.unsupervised.attribute.Remove-R1-1431,1433-1583
+Instances:    1561
+Attributes:   2
+              F0final_sma_amean
+              genero
+Test mode:10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+JRIP rules:
+===========
+
+(F0final_sma_amean >= 136.1166) => genero=f (769.0/105.0)
+ => genero=m (792.0/90.0)
+
+Number of Rules : 2
+
+
+Time taken to build model: 0.11 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        1357               86.9315 %
+Incorrectly Classified Instances       204               13.0685 %
+Kappa statistic                          0.7385
+Mean absolute error                      0.2215
+Root mean squared error                  0.3358
+Relative absolute error                 44.3594 %
+Root relative squared error             67.2007 %
+Total Number of Instances             1561     
+
+=== Detailed Accuracy By Class ===
+
+               TP Rate   FP Rate   Precision   Recall  F-Measure   ROC Area  Class
+                 0.875     0.136      0.857     0.875     0.866      0.857    f
+                 0.864     0.125      0.881     0.864     0.872      0.857    m
+Weighted Avg.    0.869     0.13       0.87      0.869     0.869      0.857
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 660  94 |   a = f
+ 110 697 |   b = m
+
