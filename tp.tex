@@ -105,30 +105,30 @@ Se evaluaron los clasificadores \texttt{rules.JRip}, \texttt{trees.J48}, \texttt
   
   \item El subconjunto hallado utilizando el método de búsqueda \texttt{GreedyStepwise}, con evaluador de atributos \texttt{ClassifierSubsetEval} y clasificador \texttt{functions.SMO}:
   \begin{description}
-    \item[mfcc\_sma{[}0{]}\_linregc1]
-    \item[mfcc\_sma{[}0{]}\_linregerrQ]
-    \item[mfcc\_sma{[}4{]}\_skewness]
-    \item[mfcc\_sma{[}6{]}\_linregc2]
-    \item[mfcc\_sma{[}10{]}\_quartile1]
-    \item[mfcc\_sma{[}12{]}\_amean]
-    \item[mfcc\_sma{[}14{]}\_quartile2]
-    \item[lspFreq\_sma{[}1{]}\_linregerrA]
-    \item[lspFreq\_sma{[}7{]}\_quartile3]
-    \item[F0finEnv\_sma\_amean]
-    \item[mfcc\_sma\_de{[}9{]}\_percentile99.0]
-    \item[lspFreq\_sma\_de{[}2{]}\_linregerrQ]
-    \item[lspFreq\_sma\_de{[}6{]}\_quartile2]
-    \item[F0final\_sma\_upleveltime75]
+    \item[mfcc\_sma{[}0{]}\_linregc1] coeficiente cepstral 0 en las frecuencias de Mel: pendiente de la aproximación lineal.
+    \item[mfcc\_sma{[}0{]}\_linregerrQ] coeficiente cepstral 0 en las frecuencias de Mel: error cuadrático de la aproximación lineal.
+    \item[mfcc\_sma{[}4{]}\_skewness] coeficiente cepstral 4 en las frecuencias de Mel suavizado\footnote{Suavizado por un filtro promedio móvil con ventana de longitud 3.}: asimetría estadística.
+    \item[mfcc\_sma{[}6{]}\_linregc2] coeficiente cepstral 6 en las frecuencias de Mel suavizado: punto de corte con el eje $y$ de la aproximación lineal.
+    \item[mfcc\_sma{[}10{]}\_quartile1] coeficiente cepstral 10 en las frecuencias de Mel suavizado: primer cuartil.
+    \item[mfcc\_sma{[}12{]}\_amean] coeficiente cepstral 12 en las frecuencias de Mel suavizado: media aritmética.
+    \item[mfcc\_sma{[}14{]}\_quartile2] coeficiente cepstral 14 en las frecuencias de Mel suavizado: segundo cuartil.
+    \item[lspFreq\_sma{[}1{]}\_linregerrA] par 1 de líneas espectrales de frecuencias computados a partir de coeficientes LPC (linear predictive coding) suavizado: error lineal de la aproximación lineal.
+    \item[lspFreq\_sma{[}7{]}\_quartile3] par 7 de líneas espectrales de frecuencias computados a partir de coeficientes LPC (linear predictive coding) suavizado: tercer cuartil.
+    \item[F0finEnv\_sma\_amean] envolvente de la frecuencia fundamental suavizada: media aritmética.
+    \item[mfcc\_sma\_de{[}9{]}\_percentile99.0] diferencial del coeficiente cepstral 9 en las frecuencias de Mel suavizado: 99-percentil.
+    \item[lspFreq\_sma\_de{[}2{]}\_linregerrQ] diferencial del par 2 de líneas espectrales de frecuencias computados a partir de coeficientes LPC (linear predictive coding) suavizado: error cuadrático de la aproximación lineal.
+    \item[lspFreq\_sma\_de{[}6{]}\_quartile2] diferencial del par 6 de líneas espectrales de frecuencias computados a partir de coeficientes LPC (linear predictive coding) suavizado: segundo cuartil.
+    \item[F0final\_sma\_upleveltime75] envolvente de la frecuencia fundamental suavizada: porcentaje de tiempo que la señal está por encima del 75\%.
   \end{description}    
   
   \item El subconjunto hallado utilizando el mismo método y evaluador anteriores, pero reemplazando el clasificador por \texttt{rules.JRip}:
   \begin{description}
-    \item[mfcc\_sma{[}10{]}\_quartile1] Primer cuartil del decimoprimer coeficiente cepstral en las frecuencias de Mel, suavizado por un filtro promedio móvil de ventana de longitud 3.
-    \item[mfcc\_sma{[}12{]}\_quartile1] Decimotercer coeficiente, idem anterior.
-    \item[logMelFreqBand\_sma{[}0{]}\_quartile3] Tercer cuartil de la potencia logarítmica de la primer banda de frecuencias de Mel, suavizado por un filtro promedio móvil de ventana de longitud 3.
-    \item[lspFreq\_sma{[}4{]}\_linregerrA] Error lineal, computado como la diferencia entre los valores reales y su aproximación lineal, de pares de 8 líneas espectrales de frecuencias computados a partir de 8 coeficientes LPC (linear predictive coding.)
-    \item[F0finEnv\_sma\_amean] Media aritmética del contorno de la envolvente de la frecuencia fundamental, suavizada por un filtro promedio móvil de ventana de longitud 3.
-    \item[shimmerLocal\_sma\_linregc1] Pendiente de la aproximación lineal de las desviaciones de amplitud locales entre períodos de pitch, suavizadas por un filtro promedio móvil de ventana de longitud 3.
+    \item[mfcc\_sma{[}10{]}\_quartile1] coeficiente cepstral 10 en las frecuencias de Mel suavizado: primer cuartil.
+    \item[mfcc\_sma{[}12{]}\_quartile1] coeficiente cepstral 12 en las frecuencias de Mel suavizado: primer cuartil.
+    \item[logMelFreqBand\_sma{[}0{]}\_quartile3] potencia logarítmica de la banda 0 en las frecuencias de Mel suavizada: tercer cuartil.
+    \item[lspFreq\_sma{[}4{]}\_linregerrA] par 4 de líneas espectrales de frecuencias computados a partir de coeficientes LPC (linear predictive coding) suavizado: error lineal de la aproximación lineal.
+    \item[F0finEnv\_sma\_amean] envolvente de la frecuencia fundamental suavizada: media aritmética.
+    \item[shimmerLocal\_sma\_linregc1] desviaciones locales de amplitud entre períodos de pitch suavizadas: pendiente de la aproximación lineal.
   \end{description}  
 \end{itemize}
 
@@ -136,7 +136,7 @@ Se evaluaron los clasificadores \texttt{rules.JRip}, \texttt{trees.J48}, \texttt
 
 A continuación se presentan los porcentajes de aciertos obtenidos con todas las combinaciones de clasificadores y subconjuntos de atributos acústicos.
 
-\begin{table}
+\begin{table}[h]
   \centering
   \begin{tabular}{  l  c | c | c | }
     \cline{3-4}
@@ -157,7 +157,7 @@ A continuación se presentan los porcentajes de aciertos obtenidos con todas las
 
 \section{Mejor sistema desarrollado}
 
-Como se puede ver en la tabla anterior, la mejor configuración hallada fue un clasificador \texttt{functions.SMO} con cross-validation de 10 folds, que toma todos los atributos acústicos de la base de datos.
+La mejor configuración hallada fue un clasificador \texttt{functions.SMO} con cross-validation de 10 folds, que toma todos los atributos acústicos de la base de datos.
 
 \subsection{Resultados}
 
